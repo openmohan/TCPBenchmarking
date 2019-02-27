@@ -1,0 +1,17 @@
+ns XXXXXX 1/2/3
+cat out.tr | ./packageplot.pl tahoe 
+gnuplot
+    plot [0:6] "sent.tahoe" with points,"dropped.tahoe", "ack.tahoe" with dots 
+    set terminal pngcairo
+    set output 'output.png'
+    replot
+    unset output
+
+cd ../2
+cat out.tr | ../../Utils/packageplot.pl tahoe 
+gnuplot
+plot [0:6] "sent.tahoe" with points,"dropped.tahoe", "ack.tahoe" with dots 
+set terminal pngcairo
+set output 'output.png'
+replot
+unset output
